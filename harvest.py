@@ -97,9 +97,9 @@ class Melon(object):
         self.harvested_by = harvested_by
         
 
-    def is_sellable(self, shape_rating, color_rating, harvested_from):
+    def is_sellable(self):
 
-        return self.shape_rating > 5 and color_rating > 5 and harvested_from != 3
+        return self.shape_rating > 5 and self.color_rating > 5 and self.harvested_from != 3
         
         
 
@@ -114,7 +114,7 @@ def make_melons(melon_types):
 
     available_melons = []
 
-    melon_1 = Melon("yw", 8, 7, 2, "Sheila")
+    melon_1 = Melon('yw', 8, 7, 2, "Sheila")
     available_melons.append(melon_1)
 
     melon_2 = Melon("yw", 3, 4, 2, "Sheila")
@@ -147,7 +147,9 @@ def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
 
     for melon in melons:
-        for_sale = 
+
+        sale = melon.is_sellable()
+        print sale
 
 
 
@@ -157,4 +159,4 @@ print_pairing_info(melons)
 make_melon_type_lookup(melons)
 make_melons(melons)
 current_melons = make_melons(melons)
-get_sellability_report(current_melons)
+print get_sellability_report(current_melons)
